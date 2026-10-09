@@ -1,16 +1,21 @@
-# praktyka project
+# task-manager / praktyka-project
 
-Repozytorium na szkolną praktykę.
+Repo na dzień 1 praktyk – organizacja repozytorium.
 
-## Opis
-Miejsce do pracy w trakcie praktyk szkolnych — kod, notatki, sprawozdania.
+Każde zadanie opisane jako Issue z kryteriami akceptacji.
 
-## Struktura
-- `src/` — kod źródłowy
-- `docs/` — notatki, sprawozdania
-- `README.md` — opis projektu
+## Struktura katalogów
 
-## Start
-1. Sklonuj repozytorium
-2. Dodawaj pliki do odpowiednich folderów
-3. Commituj regularnie postępy
+```
+task-manager/
+├── frontend/           # HTML, CSS, JS
+├── backend/            # PHP lub ASP.NET Core Web API
+├── database/           # skrypty SQL, kopie zapasowe
+├── docs/               # wymagania, ERD, makiety
+├── tests/              # przypadki testowe, testy automatyczne
+├── .github/workflows/  # CI
+├── .gitignore
+└── README.md
+```
+
+Git nie zapisuje pustych folderów – w każdym pustym katalogu jest plik `.gitkeep`.
