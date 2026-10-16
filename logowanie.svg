@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="480" viewBox="0 0 600 480" role="img" aria-label="Makieta logowania">
+  <rect width="600" height="480" fill="#F8FAFC"/>
+  <rect x="140" y="60" width="320" height="360" rx="12" fill="#FFFFFF" stroke="#E2E8F0"/>
+  <rect x="274" y="85" width="52" height="52" rx="12" fill="#1D4ED8"/>
+  <text x="235" y="170" font-family="Arial" font-size="20" font-weight="bold" fill="#0F172A">Zaloguj się</text>
+  <text x="170" y="205" font-family="Arial" font-size="13" fill="#0F172A">E-mail</text>
+  <rect x="170" y="215" width="260" height="36" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="182" y="238" font-family="Arial" font-size="12" fill="#475569">jan@example.com</text>
+  <text x="170" y="275" font-family="Arial" font-size="13" fill="#0F172A">Hasło</text>
+  <rect x="170" y="285" width="260" height="36" rx="8" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="182" y="308" font-family="Arial" font-size="12" fill="#0F172A">••••••••  Pokaż</text>
+  <rect x="170" y="335" width="260" height="40" rx="8" fill="#1D4ED8"/>
+  <text x="255" y="360" font-family="Arial" font-size="13" fill="#FFFFFF">Zaloguj się</text>
+  <text x="175" y="395" font-family="Arial" font-size="11" fill="#DC2626">Błąd: sprawdź e-mail i hasło.</text>
+</svg>
