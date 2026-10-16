@@ -1,0 +1,26 @@
+# Node
+node_modules/
+dist/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# PHP
+vendor/
+
+# .NET
+bin/
+obj/
+
+# OS / edytory
+.DS_Store
+Thumbs.db
+.vscode/*
+!.vscode/extensions.json
+
+# Bazy / sekrety
+*.sql.bak
+*.backup
+.env
