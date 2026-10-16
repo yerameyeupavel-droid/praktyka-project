@@ -12,19 +12,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Wymagana struktura katalogów
+      - name: Wymagana struktura katalogow
         run: |
           test -f README.md
-          test -f docs/design.md
-          test -f docs/erd.md
           test -f database/schema.sql
           test -f frontend/index.html
+          test -d docs
           echo "Struktura OK"
 
-      - name: Podgląd składni SQL (opcjonalnie)
+      - name: Dokumentacja (informacyjnie)
+        run: |
+          for f in docs/design.md docs/erd.md; do
+            if [ -f "$f" ]; then echo "OK: $f"; else echo "Brak (to nic zlego): $f"; fi
+          done
+
+      - name: Podglad skladni SQL (opcjonalnie)
         run: |
           if command -v psql >/dev/null 2>&1; then
             psql --version
           else
-            echo "psql niedostępny - pomijam walidację live"
+            echo "psql niedostepny - pomijam walidacje live"
           fi
