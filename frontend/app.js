@@ -23,17 +23,13 @@ function render() {
     const li = document.createElement('li');
     li.className = 'card';
     li.innerHTML =
-      '<h3>' + escapeHtml(t.title) + '</h3>' +
-      '<p>' + escapeHtml(t.description || '') + '</p>' +
+      '<h3>' + t.title + '</h3>' +
+      '<p>' + (t.description || '') + '</p>' +
       '<span class="badge ' + t.status + '">' + statusLabel[t.status] + '</span> ' +
       '<div class="row"><button data-edit="' + t.id + '" class="btn btn-ghost">Edytuj</button>' +
       '<button data-del="' + t.id + '" class="btn btn-ghost">Usuń</button></div>';
     list.appendChild(li);
   });
-}
-
-function escapeHtml(s) {
-  return String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 }
 
 document.getElementById('addBtn').addEventListener('click', () => {
@@ -79,15 +75,15 @@ form.addEventListener('submit', (e) => {
     return;
   }
   err.classList.add('hidden');
-  const data = {
-    title,
-    description: document.getElementById('description').value.trim(),
-    status: document.getElementById('status').value,
-  };
+  var description = document.getElementById('description').value.trim();
+  var status = document.getElementById('status').value;
   if (editingId) {
-    Object.assign(tasks.find((x) => x.id === editingId), data);
+    var t = tasks.find((x) => x.id === editingId);
+    t.title = title;
+    t.description = description;
+    t.status = status;
   } else {
-    tasks.push({ id: Date.now(), ...data });
+    tasks.push({ id: tasks.length + 1, title: title, description: description, status: status });
   }
   formSection.classList.add('hidden');
   render();
