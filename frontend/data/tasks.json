@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Przygotować diagram ERD",
+    "description": "Tabele USERS, TASKS, COMMENT",
+    "status": "in_progress"
+  },
+  {
+    "id": 2,
+    "title": "Zrobić makiety ekranów",
+    "description": "Lista, formularz, logowanie",
+    "status": "done"
+  },
+  {
+    "id": 3,
+    "title": "Skonfigurować PostgreSQL 18",
+    "description": "Port i hasło postgres, baza taskmanager",
+    "status": "todo"
+  },
+  {
+    "id": 4,
+    "title": "Napisać README",
+    "description": "",
+    "status": "done"
+  },
+  {
+    "id": 5,
+    "title": "Zrobić tablicę z 3 kolumnami",
+    "description": "Do zrobienia, w trakcie, wykonane",
+    "status": "in_progress"
+  }
+]

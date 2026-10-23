@@ -3,44 +3,39 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Moje Zadania - lista</title>
+  <title>Moje Zadania - tablica</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">
-      <span>Moje Zadania</span>
-    </div>
+    <img src="assets/logo.svg" alt="Moje Zadania" class="logo" />
     <button id="logoutBtn" class="btn btn-ghost">Wyloguj</button>
   </header>
 
   <main class="container">
-    <h1>Moje zadania</h1>
+    <h1>Tablica zadań</h1>
 
     <div class="toolbar">
-      <button class="btn btn-primary" id="addBtn">+ Dodaj zadanie</button>
+      <button class="btn btn-primary" id="addBtn">
+        <img src="assets/plus.svg" alt="" class="icon" />
+        Dodaj zadanie
+      </button>
       <input type="search" id="search" placeholder="Szukaj zadania..." />
-      <select id="filter">
-        <option value="all">Wszystkie</option>
-        <option value="todo">Do zrobienia</option>
-        <option value="in_progress">W trakcie</option>
-        <option value="done">Wykonane</option>
-      </select>
     </div>
 
-    <ul id="taskList" class="cards"></ul>
-    <p id="emptyMsg" class="empty hidden">Brak zadań. Dodaj pierwsze zadanie przyciskiem powyżej.</p>
+    <p id="pageError" class="error hidden"></p>
 
-    <section id="formSection" class="card hidden">
+    <!-- formularz dodawania i edycji, domyslnie schowany -->
+    <section id="formSection" class="card form-card hidden">
       <h2 id="formTitle">Dodaj zadanie</h2>
       <form id="taskForm">
-        <label>Tytuł (wymagany)
-          <input type="text" id="title" required maxlength="200" placeholder="np. Przygotować ERD" />
+        <label>Tytuł
+          <input type="text" id="title" maxlength="200" placeholder="np. Przygotować ERD" />
         </label>
         <label>Opis
-          <textarea id="description" rows="3" placeholder="Krótki opis…"></textarea>
+          <textarea id="description" rows="3" placeholder="Krótki opis"></textarea>
         </label>
         <label>Status
           <select id="status">
@@ -57,6 +52,26 @@
       </form>
     </section>
 
+    <div class="board">
+      <section class="column col-todo">
+        <h2>Do zrobienia <span class="count" id="count-todo">0</span></h2>
+        <ul class="cards" id="list-todo"></ul>
+        <p class="empty" id="empty-todo">Brak zadań</p>
+      </section>
+
+      <section class="column col-progress">
+        <h2>W trakcie <span class="count" id="count-in_progress">0</span></h2>
+        <ul class="cards" id="list-in_progress"></ul>
+        <p class="empty" id="empty-in_progress">Brak zadań</p>
+      </section>
+
+      <section class="column col-done">
+        <h2>Wykonane <span class="count" id="count-done">0</span></h2>
+        <ul class="cards" id="list-done"></ul>
+        <p class="empty" id="empty-done">Brak zadań</p>
+      </section>
+    </div>
+
     <section class="card login-demo">
       <h2>Logowanie (prototyp)</h2>
       <form id="loginForm">
@@ -64,14 +79,16 @@
           <input type="email" id="email" placeholder="jan@example.com" required />
         </label>
         <label>Hasło
-          <input type="password" id="password" placeholder="••••••••" required />
+          <input type="password" id="password" placeholder="" required />
         </label>
         <button type="submit" class="btn btn-primary">Zaloguj się</button>
         <p id="loginError" class="error hidden">Nie udało się zalogować. Sprawdź adres e-mail i hasło.</p>
       </form>
     </section>
+
+    <footer class="footer">Projekt na praktyki - INF.03</footer>
   </main>
 
-  <script src="app.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
