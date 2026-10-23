@@ -12,6 +12,15 @@
 
 Statusy: todo, in_progress, done.
 
+## Backend
+
+- API w .NET 10 (ASP.NET Core Web API) + PostgreSQL.
+- Rejestracja i logowanie, hasło hashowane przez BCrypt, token JWT.
+- CRUD zadań tylko dla zalogowanego użytkownika.
+- Komentarze do zadań.
+- Swagger do testowania.
+- Tabele: users, tasks, comment.
+
 ## Inne
 
 - Ma działać na telefonie (jedna kolumna).
@@ -27,3 +36,7 @@ Statusy: todo, in_progress, done.
 - [ ] usuwanie działa po potwierdzeniu
 - [ ] `table-schema.sql` odpala się bez błędów
 - [ ] `insert-data.sql` dodaje po 5 rekordów
+- [ ] `dotnet -v` pokazuje wersję 10.x
+- [ ] backend startuje przez `dotnet run` i otwiera się Swagger
+- [ ] rejestracja i logowanie zwracają token
+- [ ] zadania i komentarze działają na bazie `taskmanager`

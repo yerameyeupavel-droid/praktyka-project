@@ -1,0 +1,52 @@
+@host = http://localhost:5024
+
+### Rejestracja nowego użytkownika
+POST {{host}}/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "email": "test@example.com",
+  "password": "test1234"
+}
+
+### Logowanie
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "test1234"
+}
+
+### Lista zadań (wklej token z logowania)
+GET {{host}}/api/tasks
+Authorization: Bearer TU_WKLEJ_TOKEN
+
+### Dodanie zadania
+POST {{host}}/api/tasks
+Authorization: Bearer TU_WKLEJ_TOKEN
+Content-Type: application/json
+
+{
+  "title": "Test z API",
+  "description": "Zadanie dodane przez plik .http",
+  "status": "todo",
+  "dueDate": "2026-11-15"
+}
+
+### Zmiana zadania
+PUT {{host}}/api/tasks/1
+Authorization: Bearer TU_WKLEJ_TOKEN
+Content-Type: application/json
+
+{
+  "title": "Test z API",
+  "description": "Zmieniony opis",
+  "status": "in_progress",
+  "dueDate": "2026-11-15"
+}
+
+### Komentarze do zadania
+GET {{host}}/api/tasks/1/comments
+Authorization: Bearer TU_WKLEJ_TOKEN
