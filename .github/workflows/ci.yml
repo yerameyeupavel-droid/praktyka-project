@@ -22,6 +22,8 @@ jobs:
           test -f frontend/css/style.css
           test -f frontend/js/app.js
           test -f frontend/data/tasks.json
+          test -f backend/TaskManager.Api/Program.cs
+          test -f backend/TaskManager.Api/appsettings.json
           test -d docs
           echo "Struktura OK"
 
@@ -29,6 +31,7 @@ jobs:
         run: |
           test -f docs/design.md
           test -f docs/erd.md
+          test -f backend/README.md
           echo "Dokumentacja OK"
 
       - name: Szybki podglad SQL
@@ -36,3 +39,19 @@ jobs:
           grep -i "create table comment" database/table-schema.sql
           grep -i "insert into comment" database/insert-data.sql
           echo "SQL wyglada ok"
+
+  build-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore
+        run: dotnet restore backend/TaskManager.Api/TaskManager.Api.csproj
+
+      - name: Build
+        run: dotnet build backend/TaskManager.Api/TaskManager.Api.csproj --no-restore

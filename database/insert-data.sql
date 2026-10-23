@@ -5,12 +5,14 @@
 -- odpalenie: psql -U postgres -d taskmanager -f database/insert-data.sql
 
 -- USERS (id beda 1-5)
+-- haslo do wszystkich kont testowych: admin123
+-- hashe sa z BCrypt, wiec backend moze na nie zalogowac
 INSERT INTO users (username, email, password_hash) VALUES
-  ('admin', 'admin@example.com', 'hash-placeholder-1'),
-  ('jan_kowalski', 'jan@example.com', 'hash-placeholder-2'),
-  ('anna_nowak', 'anna@example.com', 'hash-placeholder-3'),
-  ('piotr_wisniewski', 'piotr@example.com', 'hash-placeholder-4'),
-  ('kasia_zielinska', 'kasia@example.com', 'hash-placeholder-5');
+  ('admin', 'admin@example.com', '$2a$11$yAqDelmc04abf7X3HFfEz.d0/YxSOytkiJp1daJfoO94mWKz6t56.'),
+  ('jan_kowalski', 'jan@example.com', '$2a$11$jaodm7A18R5GlSPzJh7lUOKOZzzspbyIADWOjm9XPMLNjSMOfuDt2'),
+  ('anna_nowak', 'anna@example.com', '$2a$11$goaq/z5kLEHeJB8NoK.Dhukd2tLhFln7frXgY0dRGGxUqZ0RLE6Sa'),
+  ('piotr_wisniewski', 'piotr@example.com', '$2a$11$Wr9g8q6fqjCOYhUjR96nk.jMPpuXge7zYxhc98716FqeJeaWxXUUm'),
+  ('kasia_zielinska', 'kasia@example.com', '$2a$11$oMTtlPfmxELfvRPsMzw1feI.g3qEyHBfT3BO36KSQZ3XT7JBPHJF.');
 
 -- sprawdzam: SELECT * FROM users; -> admin ma id 1, jan id 2
 
