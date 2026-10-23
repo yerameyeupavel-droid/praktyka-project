@@ -15,21 +15,24 @@ jobs:
       - name: Wymagana struktura katalogow
         run: |
           test -f README.md
-          test -f database/schema.sql
+          test -f database/table-schema.sql
+          test -f database/insert-data.sql
+          test -f database/select-training.sql
           test -f frontend/index.html
+          test -f frontend/css/style.css
+          test -f frontend/js/app.js
+          test -f frontend/data/tasks.json
           test -d docs
           echo "Struktura OK"
 
-      - name: Dokumentacja (informacyjnie)
+      - name: Dokumentacja
         run: |
-          for f in docs/design.md docs/erd.md; do
-            if [ -f "$f" ]; then echo "OK: $f"; else echo "Brak (to nic zlego): $f"; fi
-          done
+          test -f docs/design.md
+          test -f docs/erd.md
+          echo "Dokumentacja OK"
 
-      - name: Podglad skladni SQL (opcjonalnie)
+      - name: Szybki podglad SQL
         run: |
-          if command -v psql >/dev/null 2>&1; then
-            psql --version
-          else
-            echo "psql niedostepny - pomijam walidacje live"
-          fi
+          grep -i "create table comment" database/table-schema.sql
+          grep -i "insert into comment" database/insert-data.sql
+          echo "SQL wyglada ok"

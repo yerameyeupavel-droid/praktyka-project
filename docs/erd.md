@@ -2,7 +2,7 @@
 
 Branch `diagram-erd`. Plik do otwarcia w draw.io: `docs/erd.drawio` (wchodzisz na app.diagrams.net i otwierasz ten plik).
 
-Baza nazywa się `taskmanager`, PostgreSQL 18.
+Baza nazywa sie `taskmanager`, PostgreSQL 18.
 
 ## Tabele
 
@@ -22,7 +22,7 @@ Baza nazywa się `taskmanager`, PostgreSQL 18.
 - due_date - termin, DATE, może być puste
 - created_at, updated_at
 
-**COMMENTS** - komentarze (w zadaniu było COMMENT, ale tabelę nazwałem comments bo tak się zwykle nazywa, jeden wiersz = jeden komentarz)
+**COMMENT** - komentarze (w zadaniu tabela nazywa się COMMENT, więc tak zostawiłem)
 - id - klucz główny
 - task_id - do którego zadania, odnosi się do TASKS(id), CASCADE
 - user_id - kto napisał, odnosi się do USERS(id)
@@ -32,14 +32,14 @@ Baza nazywa się `taskmanager`, PostgreSQL 18.
 ## Jak to się łączy
 
 - Jeden user ma wiele zadań (USERS 1-N TASKS)
-- Jedno zadanie ma wiele komentarzy (TASKS 1-N COMMENTS)
-- Jeden user napisał wiele komentarzy (USERS 1-N COMMENTS)
+- Jedno zadanie ma wiele komentarzy (TASKS 1-N COMMENT)
+- Jeden user napisał wiele komentarzy (USERS 1-N COMMENT)
 
 ```mermaid
 erDiagram
     USERS ||--o{ TASKS : ma
-    TASKS ||--o{ COMMENTS : ma
-    USERS ||--o{ COMMENTS : pisze
+    TASKS ||--o{ COMMENT : ma
+    USERS ||--o{ COMMENT : pisze
     USERS {
         int id PK
         varchar username
@@ -53,7 +53,7 @@ erDiagram
         text description
         varchar status
     }
-    COMMENTS {
+    COMMENT {
         int id PK
         int task_id FK
         int user_id FK
@@ -70,8 +70,8 @@ Potem w psql:
 ```sql
 CREATE DATABASE taskmanager;
 \c taskmanager
-\i database/schema.sql
-\i database/seed.sql
+\i database/table-schema.sql
+\i database/insert-data.sql
 ```
 
-Cały SQL jest w `database/schema.sql`.
+Cały SQL jest w `database/table-schema.sql` (tabele) i `database/insert-data.sql` (dane testowe).

@@ -10,7 +10,7 @@
         <mxCell id="tasks" value="TASKS&#10;PK id SERIAL&#10;FK user_id → USERS.id NN&#10;title VARCHAR(200) NN&#10;description TEXT&#10;status todo|in_progress|done&#10;due_date DATE&#10;created_at / updated_at" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=1;fillColor=#DCFCE7;strokeColor=#166534;" vertex="1" parent="1">
           <mxGeometry x="340" y="40" width="280" height="180" as="geometry" />
         </mxCell>
-        <mxCell id="comments" value="COMMENTS&#10;PK id SERIAL&#10;FK task_id → TASKS.id NN&#10;FK user_id → USERS.id NN&#10;content TEXT NN&#10;created_at TIMESTAMPTZ" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=1;fillColor=#FEF3C7;strokeColor=#92400E;" vertex="1" parent="1">
+        <mxCell id="comments" value="COMMENT&#10;PK id SERIAL&#10;FK task_id → TASKS.id NN&#10;FK user_id → USERS.id NN&#10;content TEXT NN&#10;created_at TIMESTAMPTZ" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;rounded=1;fillColor=#FEF3C7;strokeColor=#92400E;" vertex="1" parent="1">
           <mxGeometry x="200" y="280" width="280" height="150" as="geometry" />
         </mxCell>
         <mxCell id="rel1" value="1—N (CASCADE)" style="endArrow=ERmany;startArrow=ERone;endFill=0;" edge="1" parent="1" source="users" target="tasks">

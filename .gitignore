@@ -20,6 +20,13 @@ Thumbs.db
 .vscode/*
 !.vscode/extensions.json
 
+# Konfiguracja lokalna
+*.local.json
+appsettings.Development.json
+
+# Visual Studio
+.vs/
+
 # Bazy / sekrety
 *.sql.bak
 *.backup

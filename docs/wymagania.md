@@ -3,24 +3,27 @@
 ## Musi być
 
 1. Logowanie - email + hasło, jak złe to błąd.
-2. Lista zadań - widać tytuł, opis, status.
+2. Tablica zadań - 3 kolumny według statusu (Do zrobienia, W trakcie, Wykonane).
 3. Dodawanie - tytuł wymagany, bez tytułu nie zapisze.
-4. Edycja - można zmienić wszystko.
-5. Usuwanie - pyta "czy na pewno", kasuje też komentarze.
-6. Komentarze do zadań.
-7. Szukanie i filtr po statusie.
+4. Karta zadania - pokazuje tytuł i opis, jak nie ma opisu to pisze "brak opisu".
+5. Edycja - można zmienić tytuł, opis i status. Po zapisie karta idzie do właściwej kolumny.
+6. Usuwanie - pyta "czy na pewno", karta znika.
+7. Szukanie po tytule i opisie.
 
-Statusy: do zrobienia, w trakcie, wykonane.
+Statusy: todo, in_progress, done.
 
 ## Inne
 
 - Ma działać na telefonie (jedna kolumna).
 - Kolory czytelne, kontrast powyżej 4,5.
 - Baza PostgreSQL.
+- Dane nie mogą być wstawiane przez `innerHTML` (bezpieczeństwo).
 
 ## Kiedy uznaję że działa
 
-- [ ] pusta lista pokazuje "brak zadań"
+- [ ] pusta kolumna pokazuje "Brak zadań"
 - [ ] bez tytułu nie da się dodać
-- [ ] złe hasło pokazuje błąd
-- [ ] schema.sql odpala się bez błędów
+- [ ] zmiana statusu przenosi kartę do innej kolumny
+- [ ] usuwanie działa po potwierdzeniu
+- [ ] `table-schema.sql` odpala się bez błędów
+- [ ] `insert-data.sql` dodaje po 5 rekordów
