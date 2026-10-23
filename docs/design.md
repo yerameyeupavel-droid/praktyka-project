@@ -77,7 +77,7 @@ Moje zadania
 
 -------------------------------
 Przygotować ERD [W trakcie]
-Tabele USERS, TASKS, COMMENTS
+Tabele USERS, TASKS, COMMENT
 [Edytuj] [Usuń]
 -------------------------------
 Zrobić makiety [Wykonane]
